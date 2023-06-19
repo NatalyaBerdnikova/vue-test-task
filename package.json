@@ -1,0 +1,70 @@
+{
+  "name": "frontenso-vue-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "format": "pretty-quick --staged",
+    "pre-commit": "npm-run-all format --parallel lint",
+    "compress-images": "node scripts/compress-images.js"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.7",
+    "@frontenso/eslint-config-javascript": "^0.1.9",
+    "autoprefixer": "^10.4.2",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.8.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-sonarjs": "^0.12.0",
+    "eslint-plugin-unicorn": "^41.0.0",
+    "node-ipc": "^10.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.8",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "sharp": "^0.30.1",
+    "tailwindcss": "^3.0.23",
+    "vue": "^3.2.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^8.11.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "husky": "4.3.8",
+    "prettier": "^2.5.1",
+    "pretty-quick": "^3.1.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
+  }
+}
