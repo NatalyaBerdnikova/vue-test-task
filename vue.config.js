@@ -11,4 +11,15 @@ module.exports = defineConfig({
       },
     },
   },
+
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      title: 'Catalog | Vue.js test task',
+    },
+    bin: {
+      entry: 'src/main.js',
+      title: 'Bin | Vue.js test task',
+    },
+  },
 });
