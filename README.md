@@ -1,4 +1,4 @@
-# Vue.js starter by frōntensō
+# Vue.js test task
 
 ## Project setup
 
