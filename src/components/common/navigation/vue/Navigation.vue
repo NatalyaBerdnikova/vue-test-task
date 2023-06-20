@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Navigation',
   computed: {
@@ -26,11 +28,13 @@ export default {
         },
         {
           text: 'Корзина',
-          attributes: { 'data-link': 'bin', 'data-count': 1 },
+          attributes: { 'data-link': 'bin', 'data-count': this.getItemsCount },
           hash: '/bin',
         },
       ];
     },
+
+    ...mapGetters('bin', ['getItemsCount']),
   },
 };
 </script>

@@ -27,19 +27,15 @@
   [data-link='bin'] {
     &::after {
       content: attr(data-count);
-      display: flex;
-      justify-content: center;
-      align-items: center;
       flex-shrink: 0;
       margin-left: 0.25rem;
       background-color: $c-white;
       color: $c-accent;
       border-radius: 100vmax;
-      padding-inline: 2px;
-      min-width: 15px;
-      min-height: 15px;
+      padding: 2px 4px;
       font-size: 12px;
-      line-height: 1.2;
+      font-weight: 600;
+      line-height: 1;
     }
   }
 }

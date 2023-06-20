@@ -6,5 +6,10 @@
 @import 'global';
 @import 'extends';
 
+// Views
+@import './views/catalog.scss';
+
 // Components
 @import '@/components/common/navigation/styles/navigation.scss';
+@import '@/components/catalog-item/styles/catalog-item.scss';
+@import '@/components/counter/styles/counter.scss';
