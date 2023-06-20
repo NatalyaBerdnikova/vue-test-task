@@ -1,0 +1,45 @@
+.navigation {
+  padding-top: 1rem;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list-item {
+    &:not(:last-of-type) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__link {
+    @include hover-default;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background-color: $c-accent;
+    color: $c-white;
+    border-radius: 0.25rem;
+  }
+
+  [data-link='bin'] {
+    &::after {
+      content: attr(data-count);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      margin-left: 0.25rem;
+      background-color: $c-white;
+      color: $c-accent;
+      border-radius: 100vmax;
+      padding-inline: 2px;
+      min-width: 15px;
+      min-height: 15px;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+  }
+}
