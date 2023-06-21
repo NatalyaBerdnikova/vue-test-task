@@ -6,13 +6,14 @@
 @import 'global';
 @import 'extends';
 
-// Views
-@import './views/catalog.scss';
-@import './views/bin.scss';
-
 // Components
+@import './components/list.scss';
 @import '@/components/common/button/styles/button.scss';
+@import '@/components/bin-button/styles/bin-button.scss';
 @import '@/components/common/navigation/styles/navigation.scss';
 @import '@/components/counter/styles/counter.scss';
 @import '@/components/bin-item/styles/bin-item.scss';
-@import '@/components/list/styles/list.scss';
+
+// Views
+@import '@/components/views/catalog/styles/catalog.scss';
+@import '@/components/views/bin/styles/bin.scss';

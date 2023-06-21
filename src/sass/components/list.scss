@@ -1,31 +1,31 @@
 .list {
-  .list__header-line,
-  .list__line {
-    display: grid;
-    align-items: center;
-  }
-
-  &__header-line {
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid $c-black;
+  &__item {
     margin-bottom: 1rem;
   }
 
+  &__header,
   &__line {
-    &:not(:last-of-type) {
-      margin-bottom: 1rem;
-    }
+    display: grid;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__header {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $c-black;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
   }
 
   &--3-items {
-    .list__header-line,
+    .list__header,
     .list__line {
       grid-template-columns: 5fr 1fr 230px;
     }
   }
 
   &--4-items {
-    .list__header-line,
+    .list__header,
     .list__line {
       grid-template-columns: 4fr 1fr 1fr 2fr 40px;
     }

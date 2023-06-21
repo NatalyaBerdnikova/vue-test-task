@@ -1,6 +1,6 @@
 <template>
   <div class="counter">
-    <Button aria-label="Открыть клавиатуру">
+    <Button aria-label="Открыть клавиатуру" :isDisabled="true">
       <KeyboardIcon />
     </Button>
     <span class="counter__count" :aria-label="'Количество равно ' + count">
@@ -14,11 +14,13 @@
     <Button
       class="counter__decrement"
       aria-label="Уменьшить количество"
+      :isDisabled="count <= 0"
       @click="decrease"
     />
     <Button
-      class="counter__cart"
       aria-label="Поместить в корзину"
+      isBorderless
+      :isDisabled="count <= 0"
       @click="addToCard"
     >
       <CartIcon />
@@ -28,13 +30,13 @@
 
 <script>
 import Button from '@/components/common/button/vue/Button.vue';
-import KeyboardIcon from '@/components/svg/Keyboard.vue';
-import CartIcon from '@/components/svg/Cart.vue';
+import KeyboardIcon from '@/components/icons/Keyboard.vue';
+import CartIcon from '@/components/icons/Cart.vue';
 
 export default {
   name: 'Counter',
   components: { Button, KeyboardIcon, CartIcon },
-  emits: ['addedToCard'],
+  emits: ['addToCard'],
 
   data() {
     return {
@@ -47,16 +49,14 @@ export default {
       this.count += 1;
     },
     decrease() {
-      if (this.count === 0) {
-        return;
-      }
       this.count -= 1;
     },
     addToCard() {
       if (this.count === 0) {
         return;
       }
-      this.$emit('addedToCard', this.count);
+
+      this.$emit('addToCard', this.count);
       this.count = 0;
     },
   },

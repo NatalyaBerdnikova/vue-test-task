@@ -32,12 +32,13 @@
   }
 
   &__count {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 50px;
     padding: 0 0.5rem;
-  }
-
-  &__cart {
-    margin-left: 1rem;
+    border: 1px solid $c-black;
+    align-self: stretch;
+    user-select: none;
   }
 }

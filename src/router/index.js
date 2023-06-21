@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import Catalog from '@/components/views/Catalog.vue';
+import Catalog from '@/components/views/catalog/vue/Catalog.vue';
 
 const routes = [
   {
@@ -10,7 +10,7 @@ const routes = [
   },
   {
     path: '/bin',
-    component: () => import('@/components/views/Bin.vue'),
+    component: () => import('@/components/views/bin/vue/Bin.vue'),
   },
 ];
 

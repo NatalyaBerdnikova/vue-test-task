@@ -31,7 +31,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: #{$container-width + $offset-side * 2};
+  max-width: 1200px;
   padding-right: $offset-side-xs;
   padding-left: $offset-side-xs;
   margin-right: auto;
@@ -59,6 +59,7 @@ body {
 
 .app__container {
   display: flex;
+  min-width: 1000px;
 }
 
 .expanded-area {
