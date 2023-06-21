@@ -1,13 +1,17 @@
 .list {
-  &__header-line {
+  .list__header-line,
+  .list__line {
     display: grid;
+    align-items: center;
+  }
+
+  &__header-line {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid $c-black;
     margin-bottom: 1rem;
   }
 
   &__line {
-    display: grid;
     &:not(:last-of-type) {
       margin-bottom: 1rem;
     }
