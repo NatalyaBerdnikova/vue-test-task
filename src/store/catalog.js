@@ -1,3 +1,5 @@
+export const CATALOG_STORE_NAME = 'catalog';
+
 const catalogState = {
   catalogItems: [],
 };

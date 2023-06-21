@@ -4,14 +4,14 @@
       <p v-if="isEmpty">Добавьте предметы в корзину и они появятся здесь.</p>
       <template v-else>
         <ul class="bin__list list list--4-items">
-          <li class="list__header-line">
+          <li class="list__header">
             <span> Наименование </span>
             <span> Цена </span>
             <span> Количество </span>
             <span> Стоимость </span>
           </li>
-          <li v-for="value in getItems" :key="value.key">
-            <BinItem v-bind="value" class="list__line" />
+          <li v-for="item in getItems" :key="item.id" class="list__item">
+            <BinItem v-bind="item" class="list__line" />
           </li>
         </ul>
         <p class="bin__total-value" :aria-label="'Итого' + totalValue">
@@ -33,6 +33,7 @@ import { mapGetters } from 'vuex';
 
 import BinItem from '@/components/bin-item/vue/BinItem.vue';
 import Button from '@/components/common/button/vue/Button.vue';
+import { BIN_STORE_NAME } from '@/store/bin';
 
 export default {
   name: 'Bin',
@@ -47,7 +48,7 @@ export default {
         .reduce((acc, { price, count }) => acc + price * count, 0)
         .toFixed(2);
     },
-    ...mapGetters('bin', ['getItems']),
+    ...mapGetters(BIN_STORE_NAME, ['getItems']),
   },
 
   methods: {

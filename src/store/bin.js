@@ -1,3 +1,5 @@
+export const BIN_STORE_NAME = 'bin';
+
 const binState = {
   items: {},
 };
