@@ -1,18 +1,19 @@
 <template>
-  <dl class="catalog-item">
-    <dt class="catalog-item__name">
+  <dl>
+    <dt>
       {{ name }}
     </dt>
-    <dd class="catalog-item__price">
+    <dd>
       {{ price }}
     </dd>
-    <Counter @added-to-card="addToCard" />
+    <Counter @add-to-card="addToCard" />
   </dl>
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
 
+import { BIN_STORE_NAME } from '@/store/bin';
 import Counter from '@/components/counter/vue/Counter.vue';
 
 export default {
@@ -41,7 +42,7 @@ export default {
     addToCard(count) {
       this.addItem({ id: this.id, name: this.name, price: this.price, count });
     },
-    ...mapMutations('bin', ['addItem']),
+    ...mapMutations(BIN_STORE_NAME, ['addItem']),
   },
 };
 </script>

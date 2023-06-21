@@ -1,0 +1,12 @@
+.bin-button {
+  &__count {
+    flex-shrink: 0;
+    margin-left: 0.25rem;
+    border-radius: 100vmax;
+    padding: 2px 4px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    border: 1px solid $c-black;
+  }
+}

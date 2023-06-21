@@ -1,9 +1,9 @@
 <template>
   <component
-    :is="getHtmlTag"
-    class="button"
-    v-bind="getLinkAttributes"
-    @click="buttonClickEvent"
+    :is="htmlTag"
+    :class="className"
+    v-bind="linkAttributes"
+    @click="onClick"
   >
     <slot />
   </component>
@@ -25,31 +25,54 @@ export default {
       type: Boolean,
       default: false,
     },
+    isBorderless: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ['click'],
 
   computed: {
-    getHtmlTag() {
-      if (this.link && this.isTargetBlank) {
+    htmlTag() {
+      if (!this.link) {
+        return 'button';
+      }
+
+      if (this.isTargetBlank) {
         return 'a';
       }
-      return this.link ? 'router-link' : 'button';
+
+      return 'router-link';
     },
-    getLinkAttributes() {
+    linkAttributes() {
       if (!this.link) {
         return {};
       }
-      return this.isTargetBlank
-        ? { href: this.link, target: '_blank' }
-        : { to: this.link };
+
+      if (this.isTargetBlank) {
+        return { href: this.link, target: '_blank' };
+      }
+
+      return { to: this.link };
+    },
+    className() {
+      return [
+        'button',
+        {
+          'button--borderless': this.isBorderless,
+          'button--disabled': this.isDisabled,
+        },
+      ];
     },
   },
 
   methods: {
-    buttonClickEvent(event) {
-      if (!this.isDisabled && !this.link) {
-        this.$emit('click', event);
+    onClick(event) {
+      if (this.isDisabled || this.link) {
+        return;
       }
+
+      this.$emit('click', event);
     },
   },
 };

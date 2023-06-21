@@ -7,4 +7,13 @@
   min-height: 40px;
   padding: 0.25rem;
   border: 1px solid $c-black;
+
+  &--borderless {
+    border-color: transparent;
+  }
+
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }

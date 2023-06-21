@@ -1,28 +1,30 @@
 <template>
-  <div class="bin-item">
-    <span class="bin-item__name" :aria-label="'Наименование: ' + name">
+  <dl class="bin-item">
+    <dt :aria-label="'Наименование: ' + name">
       {{ name }}
-    </span>
-    <span class="bin-item__price" :aria-label="'Цена: ' + price">
+    </dt>
+    <dd :aria-label="'Цена: ' + price">
       {{ price }}
-    </span>
-    <span class="bin-item__count" :aria-label="'Количество: ' + count">
+    </dd>
+    <dd :aria-label="'Количество: ' + count">
       {{ count }}
-    </span>
-    <span class="bin-item__value" :aria-label="'Стоимость: ' + value">
-      {{ value }}
-    </span>
+    </dd>
+    <dd :aria-label="'Стоимость: ' + sum">
+      {{ sum }}
+    </dd>
     <Button
       class="bin-item__remove-button"
       aria-label="Удалить товар из корзины"
+      isBorderless
       @click="removeFromBin"
     />
-  </div>
+  </dl>
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
 
+import { BIN_STORE_NAME } from '@/store/bin';
 import Button from '@/components/common/button/vue/Button.vue';
 
 export default {
@@ -44,7 +46,7 @@ export default {
   },
 
   computed: {
-    value() {
+    sum() {
       return (this.price * this.count).toFixed(2);
     },
   },
@@ -53,7 +55,7 @@ export default {
     removeFromBin() {
       this.removeItem(this.id);
     },
-    ...mapMutations('bin', ['removeItem']),
+    ...mapMutations(BIN_STORE_NAME, ['removeItem']),
   },
 };
 </script>
