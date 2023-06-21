@@ -18,8 +18,10 @@
           <span>Итого:</span> {{ totalValue }}
         </p>
         <div class="bin__buttons">
-          <Button class="bin__button"> Берём! </Button>
-          <Button class="bin__button"> Пожалуй, откажусь </Button>
+          <Button class="bin__button" @click="purchase"> Берём! </Button>
+          <Button class="bin__button" @click="refuse">
+            Пожалуй, откажусь
+          </Button>
         </div>
       </template>
     </div>
@@ -46,6 +48,17 @@ export default {
         .toFixed(2);
     },
     ...mapGetters('bin', ['getItems']),
+  },
+
+  methods: {
+    purchase() {
+      this.$store.dispatch('bin/makePurchase');
+      this.$router.push({ path: '/' });
+    },
+    refuse() {
+      this.$store.dispatch('bin/refusePurchase');
+      this.$router.push({ path: '/' });
+    },
   },
 };
 </script>

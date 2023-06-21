@@ -2,7 +2,21 @@ const binState = {
   items: {},
 };
 
+const actions = {
+  makePurchase({ commit, state }) {
+    const result = JSON.stringify(state);
+    console.info(result);
+    commit('setItems', {});
+  },
+  refusePurchase({ commit }) {
+    commit('setItems', {});
+  },
+};
+
 const mutations = {
+  setItems(state, items) {
+    state.items = items;
+  },
   addItem(state, item) {
     const { id, count } = item;
 
@@ -31,6 +45,7 @@ const getters = {
 const store = {
   namespaced: true,
   state: binState,
+  actions,
   mutations,
   getters,
 };
