@@ -6,9 +6,9 @@
         :key="text"
         class="navigation__list-item"
       >
-        <router-link :to="hash" class="navigation__link" v-bind="attributes">
+        <Button :link="hash" class="navigation__link" v-bind="attributes">
           {{ text }}
-        </router-link>
+        </Button>
       </li>
     </ul>
   </nav>
@@ -17,8 +17,12 @@
 <script>
 import { mapGetters } from 'vuex';
 
+import Button from '@/components/common/button/vue/Button.vue';
+
 export default {
   name: 'Navigation',
+  components: { Button },
+
   computed: {
     links() {
       return [

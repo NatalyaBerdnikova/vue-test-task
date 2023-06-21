@@ -1,41 +1,39 @@
 <template>
   <div class="counter">
-    <button
-      class="counter__button counter__keyboard"
-      aria-label="Открыть клавиатуру"
-    >
+    <Button aria-label="Открыть клавиатуру">
       <KeyboardIcon />
-    </button>
+    </Button>
     <span class="counter__count" :aria-label="'Количество равно ' + count">
       {{ count }}
     </span>
-    <button
-      class="counter__button counter__increment"
+    <Button
+      class="counter__increment"
       aria-label="Увеличить количество"
       @click="increase"
     />
-    <button
-      class="counter__button counter__decrement"
+    <Button
+      class="counter__decrement"
       aria-label="Уменьшить количество"
       @click="decrease"
     />
-    <button
+    <Button
       class="counter__cart"
       aria-label="Поместить в корзину"
       @click="addToCard"
     >
       <CartIcon />
-    </button>
+    </Button>
   </div>
 </template>
 
 <script>
+import Button from '@/components/common/button/vue/Button.vue';
 import KeyboardIcon from '@/components/svg/Keyboard.vue';
 import CartIcon from '@/components/svg/Cart.vue';
 
 export default {
   name: 'Counter',
-  components: { KeyboardIcon, CartIcon },
+  components: { Button, KeyboardIcon, CartIcon },
   emits: ['addedToCard'],
 
   data() {
