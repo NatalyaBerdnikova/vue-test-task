@@ -8,9 +8,11 @@
 
 // Views
 @import './views/catalog.scss';
+@import './views/bin.scss';
 
 // Components
 @import '@/components/common/button/styles/button.scss';
 @import '@/components/common/navigation/styles/navigation.scss';
-@import '@/components/catalog-item/styles/catalog-item.scss';
 @import '@/components/counter/styles/counter.scss';
+@import '@/components/bin-item/styles/bin-item.scss';
+@import '@/components/list/styles/list.scss';

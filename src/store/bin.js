@@ -6,7 +6,13 @@ const mutations = {
   addItem(state, item) {
     const { id, count } = item;
 
-    state.items[id] = count;
+    const newCount = state.items[id]?.count
+      ? state.items[id].count + count
+      : count;
+    state.items[id] = { ...item, count: newCount };
+  },
+  removeItem(state, id) {
+    delete state.items[id];
   },
 };
 
@@ -15,7 +21,10 @@ const getters = {
     return state.items;
   },
   getItemsCount(state) {
-    return Object.values(state.items).reduce((acc, value) => acc + value, 0);
+    return Object.values(state.items).reduce(
+      (acc, { count }) => acc + count,
+      0
+    );
   },
 };
 

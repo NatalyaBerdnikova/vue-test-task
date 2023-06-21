@@ -1,14 +1,17 @@
 <template>
   <section class="catalog">
-    <ul class="catalog__list">
-      <li
-        v-for="item in getCatalogItems"
-        :key="item.name"
-        class="catalog__list-item"
-      >
-        <CatalogItem v-bind="item" />
-      </li>
-    </ul>
+    <div class="catalog__content">
+      <ul class="catalog__list list list--3-items">
+        <li class="list__header-line">
+          <span> Наименование </span>
+          <span> Цена </span>
+          <span> Действия </span>
+        </li>
+        <li v-for="item in getCatalogItems" :key="item.name">
+          <CatalogItem v-bind="item" class="list__line" />
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
 

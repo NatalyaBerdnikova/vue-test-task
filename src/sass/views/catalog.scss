@@ -2,13 +2,8 @@
   padding: 1rem;
   width: 100%;
 
-  &__list {
-    display: grid;
-    width: 100%;
-    gap: 0.5rem;
-  }
-
-  &__list-item {
-    width: 100%;
+  &__content {
+    padding: 1rem;
+    border: 1px solid $c-black;
   }
 }

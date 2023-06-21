@@ -39,7 +39,7 @@ export default {
 
   methods: {
     addToCard(count) {
-      this.addItem({ id: this.id, count });
+      this.addItem({ id: this.id, name: this.name, price: this.price, count });
     },
     ...mapMutations('bin', ['addItem']),
   },
